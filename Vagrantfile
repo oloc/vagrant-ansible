@@ -25,6 +25,8 @@ VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "debian/jessie64"
+  # To prevent tty errors
+  config.ssh.shell = "bash -c 'BASH_ENV=/etc/profile exec bash'"
   fileContent.each do |node|
     config.vm.define node[:name] do |machine|
       machine.vm.hostname = "#{node[:name]}.#{Domain}"
