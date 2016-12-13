@@ -1,0 +1,5 @@
+[loadbalancer]
+kiwi ansible_host=192.168.10.10 ansible_user=vagrant ansible_ssh_private_key_file=.vagrant/machines/kiwi/virtualbox/private_key
+[site]
+koala-01 ansible_host=192.168.10.11 ansible_user=vagrant ansible_ssh_private_key_file=.vagrant/machines/koala-01/virtualbox/private_key
+koala-02 ansible_host=192.168.10.12 ansible_user=vagrant ansible_ssh_private_key_file=.vagrant/machines/koala-02/virtualbox/private_key

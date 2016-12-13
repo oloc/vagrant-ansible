@@ -1,0 +1,5 @@
+---
+- name: Loadbalancer
+  hosts: loadbalancer
+- name: Le site
+  hosts: site
