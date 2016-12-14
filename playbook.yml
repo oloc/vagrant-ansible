@@ -1,5 +1,5 @@
 ---
 - name: Loadbalancer
-  hosts: loadbalancer
+  hosts: kiwi*
 - name: Le site
-  hosts: site
+  hosts: koala*

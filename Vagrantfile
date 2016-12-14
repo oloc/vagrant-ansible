@@ -42,6 +42,18 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         vb.customize ["modifyvm", :id, "--name", node[:name]]
         vb.customize ["modifyvm", :id, "--natpf1", ",tcp,127.0.0.1,22#{node[:iplastdigit]},,22"]
       end
+
+      if node == fileContent.last
+        machine.vm.provision :ansible do |ansible|
+          # Disable default limit to connect to all the machines
+          ansible.limit          = 'all'
+          ansible.playbook       = "playbook.yml"
+          ansible.inventory_path = "vagrant_hosts" # Previously generated
+          ansible.raw_arguments  = [
+            "--verbose"]
+        end
+      end
+
     end
   end
 end
